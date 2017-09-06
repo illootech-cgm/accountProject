@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context   
+	http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       	
+    <bean id="excelView" class="kr.co.seoulit.common.view.ExcelView" /> 
+    <bean id="pdfView" class="kr.co.seoulit.common.view.PDFView" /> 
+	<bean id="urlFilenameViewController"
+		class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+	<bean id="beanNameViewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver"
+		p:order="0" />
+	<bean name="jsonView" class="net.sf.json.spring.web.servlet.view.JsonView" />
+	<bean id="modelAndView" 
+      class="org.springframework.web.servlet.ModelAndView" />
+   <bean id="parameterMethodNameResolver" 
+         class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver"
+         p:paramName="oper" />
+</beans>
+

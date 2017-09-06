@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee">
+	<display-name>accountiingProject</display-name>
+	<welcome-file-list>
+		<welcome-file>index.do</welcome-file>
+
+	</welcome-file-list>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/context/applicationContext*.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet/servlet-main.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>slip</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet/servlet-slip.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>slip</servlet-name>
+		<url-pattern>/accounting/slip/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>account</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet/servlet-account.xml</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>account</servlet-name>
+		<url-pattern>/accounting/accountbase/*</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+    <servlet-name>base</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/servlet/servlet-base.xml</param-value>
+    </init-param>
+    <load-on-startup>4</load-on-startup>
+    <multipart-config>
+     <location>C:\dev\httpd\htdocs\accountingProject\temp</location>
+   <max-file-size>-1</max-file-size>
+   <max-request-size>-1</max-request-size>
+   <file-size-threshold>1024</file-size-threshold>
+  
+</multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>base</servlet-name>
+    <url-pattern>/base/*</url-pattern>
+  </servlet-mapping>
+
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<display-name>LoginCheckFilter</display-name>
+		<filter-name>LoginCheckFilter</filter-name>
+		<filter-class>kr.co.seoulit.common.filter.LoginCheckFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>/accounting/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

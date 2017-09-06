@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<decorators defaultdir="/WEB-INF/jsp">
+	<excludes>
+		<pattern>/base/code/helpCode.do*</pattern>
+		<pattern>/base/emp/addImg.do</pattern>
+		<pattern>/base/emp/addForm.do</pattern>
+		<pattern>/base/post/post.do</pattern>
+	</excludes>
+	<decorator name="main" page="decorator.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	<decorator name="main" page="decorator.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+</decorators>
